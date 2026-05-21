@@ -16,29 +16,35 @@ ZROTH is a luxury-inspired streetwear e-commerce frontend focused on modern Gen-
 
 ---
 
-# Screenshots
+# 📸 Screenshots
 
-## Home Page
-
+## 🏠 Home Page
 ![Home Page](screenshots/home.png)
 
 ---
 
-## Shop Page
-
+## 🛍 Shop Page
 ![Shop Page](screenshots/shop.png)
 
 ---
 
-## Product Page
-
+## 👕 Product Page
 ![Product Page](screenshots/product.png)
 
 ---
 
-## Cart Page
-
+## 🛒 Cart Page
 ![Cart Page](screenshots/cart.png)
+
+---
+
+## ℹ️ About Page
+![About Page](screenshots/about.png)
+
+---
+
+## 📩 Contact Page
+![Contact Page](screenshots/contact.png)
 
 ---
 
