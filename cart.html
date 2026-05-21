@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cart — ZROTH</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div class="loader">
+<h1>ZROTH</h1>
+</div>
+
+<!-- CURSOR -->
+
+<div class="cursor"></div>
+
+<!-- NAVBAR -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+<a href="index.html">ZROTH</a>
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">HOME</a></li>
+
+<li><a href="shop.html">SHOP</a></li>
+
+<li><a href="about.html">ABOUT</a></li>
+
+<li><a href="contact.html">CONTACT</a></li>
+
+<li><a href="cart.html" class="active">CART</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="contact-hero cart-hero">
+
+<div class="overlay"></div>
+
+<div class="contact-hero-content">
+
+<p class="small-text">
+YOUR COLLECTION
+</p>
+
+<h1>
+ZROTH<br>
+CART
+</h1>
+
+<p class="contact-subtext">
+
+Review your selected pieces before checkout.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- CART -->
+
+<section class="cart-page">
+
+<!-- LEFT -->
+
+<div>
+
+<div class="cart-header">
+
+<h1>
+YOUR BAG
+</h1>
+
+<p>
+Premium oversized streetwear selected for your collection.
+</p>
+
+</div>
+
+<div id="cartItems"></div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="cart-summary">
+
+<h2>
+CART SUMMARY
+</h2>
+
+<div class="summary-row">
+
+<span>Total Products</span>
+
+<span id="totalProducts">
+0
+</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>Shipping</span>
+
+<span>
+FREE
+</span>
+
+</div>
+
+<div class="summary-row total-row">
+
+<span>Total Amount</span>
+
+<span id="totalPrice">
+₹0
+</span>
+
+</div>
+
+<button class="checkout-btn">
+PROCEED TO CHECKOUT
+</button>
+
+<button class="clear-cart-btn" onclick="clearCart()">
+CLEAR CART
+</button>
+
+</div>
+
+</section>
+
+<!-- MARQUEE -->
+
+<section class="marquee">
+
+<div class="marquee-track">
+
+ZROTH • PREMIUM STREETWEAR • LIMITED DROP • FEARLESS CULTURE • OVERSIZED FASHION •
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h2>
+ZROTH
+</h2>
+
+<p>
+Zero Rules. Zero Limits.
+Luxury oversized streetwear for fearless youth culture.
+</p>
+
+</div>
+
+<div>
+
+<h3>
+Quick Links
+</h3>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="shop.html">Shop</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>
+Newsletter
+</h3>
+
+<input type="email" placeholder="Your Email">
+
+<button>
+Subscribe
+</button>
+
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("zrothCart")) || [];
+
+const cartContainer = document.getElementById("cartItems");
+
+const totalPrice = document.getElementById("totalPrice");
+
+const totalProducts = document.getElementById("totalProducts");
+
+function renderCart(){
+
+cartContainer.innerHTML = "";
+
+let total = 0;
+
+if(cart.length === 0){
+
+cartContainer.innerHTML = `
+
+<div class="empty-cart">
+
+<h2>
+Your cart is empty.
+</h2>
+
+<p>
+Add some premium ZROTH pieces to your collection.
+</p>
+
+<a href="shop.html" class="btn">
+SHOP NOW
+</a>
+
+</div>
+
+`;
+
+totalPrice.innerText = "₹0";
+totalProducts.innerText = "0";
+
+return;
+
+}
+
+cart.forEach((item,index)=>{
+
+total += parseInt(item.price.replace("₹",""));
+
+cartContainer.innerHTML += `
+
+<div class="cart-item">
+
+<img src="${item.image}">
+
+<div class="cart-info">
+
+<h3>${item.name}</h3>
+
+<p>${item.price}</p>
+
+<p>Size: ${item.size}</p>
+
+</div>
+
+<button class="remove-btn" onclick="removeItem(${index})">
+REMOVE
+</button>
+
+</div>
+
+`;
+
+});
+
+totalPrice.innerText = "₹" + total;
+
+totalProducts.innerText = cart.length;
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem("zrothCart",JSON.stringify(cart));
+
+renderCart();
+
+}
+
+function clearCart(){
+
+cart = [];
+
+localStorage.setItem("zrothCart",JSON.stringify(cart));
+
+renderCart();
+
+}
+
+renderCart();
+
+</script>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product — ZROTH</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+<a href="index.html">ZROTH</a>
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">HOME</a></li>
+<li><a href="shop.html">SHOP</a></li>
+<li><a href="about.html">ABOUT</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+<li><a href="cart.html">CART</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="product-page">
+
+<!-- LEFT -->
+
+<div class="product-gallery">
+
+<img id="productImage" src="" alt="">
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="product-details">
+
+<a href="shop.html" class="back-btn">
+← BACK TO COLLECTION
+</a>
+
+<p class="shop-tag">
+LIMITED DROP
+</p>
+
+<h1 id="productName">
+NO SIGNAL TEE
+</h1>
+
+<div class="product-price" id="productPrice">
+₹1499
+</div>
+
+<p class="product-description">
+
+Premium oversized luxury streetwear designed for fearless youth culture.
+
+Heavyweight cotton, oversized fit and premium street aesthetics.
+
+</p>
+
+<div class="size-selector">
+
+<h3>
+SELECT SIZE
+</h3>
+
+<!-- <div class="sizes">
+
+<button>S</button>
+<button>M</button>
+<button>L</button>
+<button>XL</button>
+
+</div> -->
+
+
+<div class="sizes">
+
+<button onclick="selectSize(this)">S</button>
+
+<button onclick="selectSize(this)">M</button>
+
+<button onclick="selectSize(this)">L</button>
+
+<button onclick="selectSize(this)">XL</button>
+
+</div>
+
+</div>
+
+<button type="button" class="product-add-btn" onclick="addToCart()">
+ADD TO CART
+</button>
+
+<div class="product-extra">
+
+<div class="extra-item">
+
+<span>FIT</span>
+
+<p>Oversized Fit</p>
+
+</div>
+
+<div class="extra-item">
+
+<span>MATERIAL</span>
+
+<p>100% Premium Cotton</p>
+
+</div>
+
+<div class="extra-item">
+
+<span>SHIPPING</span>
+
+<p>Worldwide Shipping</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+const products = {
+
+1:{
+name:"NO SIGNAL TEE",
+price:"₹1499",
+image:"assets/product1.jpg"
+},
+
+2:{
+name:"ZERO LIMITS TEE",
+price:"₹1699",
+image:"assets/product2.jpg"
+},
+
+3:{
+name:"CHAOS CULTURE TEE",
+price:"₹1799",
+image:"assets/product3.jpg"
+},
+
+4:{
+name:"REBELS CLUB TEE",
+price:"₹1599",
+image:"assets/product4.jpg"
+},
+
+5:{
+name:"DARK YOUTH TEE",
+price:"₹1899",
+image:"assets/product5.jpg"
+},
+
+6:{
+name:"YELLOW SIGNAL TEE",
+price:"₹1699",
+image:"assets/product6.jpg"
+},
+
+7:{
+name:"STREET WHITE TEE",
+price:"₹1799",
+image:"assets/product7.jpg"
+},
+
+8:{
+name:"ORANGE CORE TEE",
+price:"₹1999",
+image:"assets/product8.jpg"
+},
+
+9:{
+name:"BLACK STARBOY TEE",
+price:"₹1999",
+image:"assets/product9.jpg"
+},
+
+10:{
+name:"BLACK VOLCANO",
+price:"₹1999",
+image:"assets/product10.jpg"
+},
+
+11:{
+name:"BLUE WHITE FLOWER",
+price:"₹1999",
+image:"assets/product11.jpg"
+},
+
+12:{
+name:"BLACK SCARRY TEE",
+price:"₹1999",
+image:"assets/product12.jpg"
+},
+
+13:{
+name:"BLUE STYLE TEE",
+price:"₹1999",
+image:"assets/product13.jpg"
+},
+
+14:{
+name:"BLACK HOODIE TEE",
+price:"₹1999",
+image:"assets/product14.jpg"
+},
+
+15:{
+name:"DARK NIGHT",
+price:"₹1999",
+image:"assets/product15.jpg"
+}
+
+};
+
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+const product = products[id];
+
+document.getElementById("productName").innerText = product.name;
+
+document.getElementById("productPrice").innerText = product.price;
+
+document.getElementById("productImage").src = product.image;
+
+/* SIZE SELECTOR */
+
+let selectedSize = "";
+
+function selectSize(button){
+
+document.querySelectorAll(".sizes button")
+.forEach(btn => btn.classList.remove("active-size"));
+
+button.classList.add("active-size");
+
+selectedSize = button.innerText;
+
+}
+
+/* ADD TO CART */
+
+function addToCart(){
+
+if(selectedSize === ""){
+
+alert("Please select a size");
+
+return;
+
+}
+
+function showNotification(message){
+
+const notification = document.createElement("div");
+
+notification.className = "cart-notification";
+
+notification.innerText = message;
+
+document.body.appendChild(notification);
+
+setTimeout(() => {
+notification.classList.add("show");
+},100);
+
+setTimeout(() => {
+notification.classList.remove("show");
+
+setTimeout(()=>{
+notification.remove();
+},300);
+
+},2500);
+
+}
+
+let cart = JSON.parse(localStorage.getItem("zrothCart")) || [];
+
+cart.push({
+
+name: product.name,
+
+price: product.price,
+
+image: product.image,
+
+size: selectedSize,
+quantity:1
+
+});
+
+localStorage.setItem("zrothCart",JSON.stringify(cart));
+
+// alert(product.name + " (" + selectedSize + ") Added To Cart");
+
+showNotification(product.name + " (" + selectedSize + ") Added To Cart");
+}
+
+</script>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
