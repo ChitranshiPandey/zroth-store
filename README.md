@@ -2,97 +2,99 @@
 
 <div align="center">
 
-### Zero Rules. Zero Limits.
+# ZERO RULES. ZERO LIMITS.
 
 Premium Gen-Z Streetwear Fashion Website built with HTML, CSS & JavaScript.
+
+Modern luxury streetwear inspired by underground youth culture and oversized fashion aesthetics.
 
 </div>
 
 ---
 
-# Preview
+# 🚀 Live Preview
 
-ZROTH is a luxury-inspired streetwear e-commerce frontend focused on modern Gen-Z fashion aesthetics, oversized culture, smooth interactions, and responsive user experience.
+ZROTH is a premium streetwear e-commerce frontend focused on modern UI/UX, oversized fashion culture, responsive layouts, and immersive shopping experience.
 
 ---
 
 # 📸 Screenshots
 
 ## 🏠 Home Page
-![Home Page](screenshots/home.png)
+![Home Page](./screenshots/home.png)
 
 ---
 
 ## 🛍 Shop Page
-![Shop Page](screenshots/shop.png)
+![Shop Page](./screenshots/shop.png)
 
 ---
 
 ## 👕 Product Page
-![Product Page](screenshots/product.png)
+![Product Page](./screenshots/product.png)
 
 ---
 
 ## 🛒 Cart Page
-![Cart Page](screenshots/cart.png)
+![Cart Page](./screenshots/cart.png)
 
 ---
 
 ## ℹ️ About Page
-![About Page](screenshots/about.png)
+![About Page](./screenshots/about.png)
 
 ---
 
 ## 📩 Contact Page
-![Contact Page](screenshots/contact.png)
+![Contact Page](./screenshots/contact.png)
 
 ---
 
-# Features
+# ✨ Features
 
-## Premium UI/UX
+## 🎨 Premium UI/UX
 - Dark luxury streetwear aesthetic
 - Modern typography and layouts
 - Smooth hover interactions
-- Responsive design across devices
 - Editorial-inspired visuals
+- Fully responsive design
 
-## Shopping Experience
+## 🛍 Shopping Experience
 - Dynamic product pages
 - Quick View functionality
 - Size selection system
-- Add to Cart functionality
+- Add To Cart functionality
 - LocalStorage cart persistence
 - Product detail rendering
 - Cart management system
 
-## Responsive Design
+## 📱 Responsive Design
 - Mobile optimized layouts
 - Tablet responsive UI
-- Adaptive grids and typography
-- Optimized product cards
+- Adaptive typography
+- Flexible product grids
 
-## Interactive Elements
+## ⚡ Interactive Elements
 - Smooth animations
-- Custom notifications
 - Animated marquee sections
-- Hover effects and transitions
+- Hover transitions
 - Interactive product previews
+- Custom cart notifications
 
 ---
 
-# Tech Stack
+# 🛠 Tech Stack
 
 | Technology | Purpose |
 |---|---|
-| HTML5 | Structure |
+| HTML5 | Website Structure |
 | CSS3 | Styling & Responsive Design |
 | JavaScript | Interactivity & Cart Logic |
 | LocalStorage API | Cart Persistence |
 
 ---
 
-# Project Structure
+# 📂 Project Structure
 
 ```bash
 ZROTH/
@@ -108,7 +110,9 @@ ZROTH/
 │   ├── home.png
 │   ├── shop.png
 │   ├── product.png
-│   └── cart.png
+│   ├── cart.png
+│   ├── about.png
+│   └── contact.png
 │
 ├── css/
 │   ├── style.css
@@ -125,3 +129,50 @@ ZROTH/
 ├── contact.html
 ├── cart.html
 └── README.md
+```
+
+---
+
+# 💻 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/ZROTH.git
+```
+
+Open the project folder:
+
+```bash
+cd ZROTH
+```
+
+Run locally by opening:
+
+```bash
+index.html
+```
+
+---
+
+# 🌍 Deployment
+
+This project is fully deployable on:
+
+- Vercel
+- Netlify
+- GitHub Pages
+
+---
+
+# 👑 Author
+
+Developed by Chitranshi Pandey.
+
+Inspired by modern Gen-Z streetwear culture and premium fashion editorials.
+
+---
+
+# ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub.
